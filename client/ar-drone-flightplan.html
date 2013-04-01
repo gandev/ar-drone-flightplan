@@ -1,0 +1,43 @@
+<head>
+  <title>ar-drone-flightplan</title>
+</head>
+
+<body>
+  {{> plans}}
+</body>
+
+<template name="plans">
+  <div class="tabbable tabs-left">
+  	 <ul class="nav nav-tabs">
+		{{#each flightplans}}
+	      <li class="{{active}}">
+	        <a href="#{{_id}}" data-toggle="tab">{{name}}</a>
+	      </li>
+	    {{/each}}
+	 </ul>
+	 {{#if selected}}
+	  <div class="tab-content">
+	    <div class="tab-pane" id="{{selected}}">
+	      	{{> editor}}
+	    </div>
+	  </div>
+	  {{/if}}
+  </div>
+</template>
+
+<template name="editor">
+  <div class="map" style="float: left;">
+     {{#constant}}
+      <svg width="500" height="500">
+        <circle class="callout" cx=-100 cy=-100></circle>
+        <g class="path"></g>
+        <g class="connections"></g>
+      </svg>
+    {{/constant}}
+  </div>
+  <div class="code" style="float: left; width: 600px;">
+    <pre>
+      <code class="javascript">{{code}}</code>
+    </pre>
+  </div>
+</template>

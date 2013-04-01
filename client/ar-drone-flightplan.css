@@ -1,0 +1,39 @@
+/* CSS declarations go here */
+
+.map {
+	background-color: rgb(245, 247, 242);
+    width: 500px;
+    height: 500px;
+}
+
+.map circle.public {
+    fill: #49AFCD;
+}
+
+.map circle.callout {
+    stroke-width: 5px;
+    stroke-dasharray: 9, 5;
+    stroke-opacity: .8;
+    fill: none;
+    stroke: red;
+}
+
+.map path {
+	stroke-width: 5px;
+    stroke-dasharray: 9, 5;
+    stroke-opacity: .8;
+    fill: none;
+    stroke: red;
+}
+
+pre {
+  background: rgb(255, 255, 255) url(./school_book.png);
+  border-top: solid 2px #d2e8b9;
+  border-bottom: solid 1px #d2e8b9;
+}
+
+pre code {
+  display: block; padding: 0.5em;
+  background: rgb(138, 125, 125);
+  color: #DCDCDC;
+}
