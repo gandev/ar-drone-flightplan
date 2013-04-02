@@ -2,7 +2,7 @@ Meteor.publish("plans", function() {
   //publish modified plans
   //--> each location as instance of Position (reactive datasource)
 
-  return Plans.find({});
+  return Plans.find({}, {sort: {name: 1}});
 });
 
 Meteor.startup(function() {

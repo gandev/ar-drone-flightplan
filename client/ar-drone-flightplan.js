@@ -32,15 +32,17 @@ Template.plans.events({
 Template.editor.helpers({
   code: function() {
     var plan = getPlan(Session.get("selectedPlan"));
+    var code = 'var arDrone = require("ar-drone");\nvar client = arDrone.createClient();\n\nclient.takeoff()';
 
-    console.log("code generated");
+    if(plan) {
+      code = code + ";\n\nclient";
 
-    var code = 'var arDrone = require("ar-drone");\nvar client = arDrone.createClient();\nclient.takeoff();\nclient';
+      console.log("code generated");
 
-    for(var i = 0;i < plan.path.length;i++) {
-      code = code + "\n.after(5000, function() { this.clockwise(0.5); })";
+      plan.path.forEach(function(conn) {
+        code = code + "\n\t.after(5000, function() { this.clockwise(0.5); })";
+      });
     }
-
     return code + ";";
   }
 });
@@ -151,6 +153,7 @@ Template.editor.rendered = function () {
         callout.attr("display", 'none');
     }
   });
+
 
   $('pre code').each(function(i, e) {hljs.highlightBlock(e);});
 };

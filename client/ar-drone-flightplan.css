@@ -27,13 +27,7 @@
 }
 
 pre {
-  background: rgb(255, 255, 255) url(./school_book.png);
+  background: rgb(255, 255, 255);
   border-top: solid 2px #d2e8b9;
   border-bottom: solid 1px #d2e8b9;
-}
-
-pre code {
-  display: block; padding: 0.5em;
-  background: rgb(138, 125, 125);
-  color: #DCDCDC;
 }
