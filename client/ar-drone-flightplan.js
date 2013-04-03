@@ -40,14 +40,17 @@ Template.editor.helpers({
       console.log("code generated");
 
       plan.path.forEach(function(conn) {
-        code = code + "\n\t.after(5000, function() { this.clockwise(0.5); })";
+        code = code + ".after(" + conn.distance + ", function() { this.clockwise(" + conn.angle + "); })\n";
       });
     }
-    return code + ";";
+    return code.substring(0, code.lastIndexOf("\n")) + ";";
   }
 });
 
 Template.editor.events({
+  'click circle': function() {
+    console.log("circle selected: ",this);
+  },
   'click .map': function(evt, tmpl) {
     var point = coordsRelativeToElement(evt.currentTarget, evt);
     Session.set("selectedPos", point);

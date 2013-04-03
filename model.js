@@ -26,4 +26,10 @@ function Connection(lastIdx, from, to) {
 	this.idx = lastIdx + 1;
     this.from = from; //Position
     this.to = to; //Position
+
+    var xOffset = from.x - to.x;
+    var yOffset = from.y - to.y;
+
+    this.distance = Math.sqrt(Math.pow(xOffset, 2) + Math.pow(yOffset, 2)).toFixed(3);
+    this.angle = Math.atan(yOffset/xOffset).toFixed(5);
 }
