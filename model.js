@@ -12,24 +12,25 @@ Plans.allow({
 	}
 });
 
-function getPlan(id) {
+getPlan = function (id) {
 	return Plans.findOne({_id: id});
-}
+};
 
-//todo reactive datasource Position, Connection
-function Position(x, y) {
+Position = function (x, y) {
   this.x = x;
   this.y = y;
-}
+};
 
-function Connection(lastIdx, from, to) {
+Connection = function (lastIdx, from, to) {
 	this.idx = lastIdx + 1;
-    this.from = from; //Position
-    this.to = to; //Position
+    this.from = from;
+    this.to = to;
 
     var xOffset = from.x - to.x;
     var yOffset = from.y - to.y;
 
     this.distance = Math.sqrt(Math.pow(xOffset, 2) + Math.pow(yOffset, 2)).toFixed(3);
     this.angle = Math.atan(yOffset/xOffset).toFixed(5);
-}
+};
+
+StartPos = {x: 20, y: 20};

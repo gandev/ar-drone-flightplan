@@ -6,7 +6,11 @@
     height: 500px;
 }
 
-.map circle.public {
+.map circle.start {
+    fill: #49A000;
+}
+
+.map circle.pos {
     fill: #49AFCD;
 }
 
@@ -23,7 +27,7 @@
     stroke-dasharray: 9, 5;
     stroke-opacity: .8;
     fill: none;
-    stroke: red;
+    stroke: black;
 }
 
 pre {
